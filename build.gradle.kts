@@ -2,10 +2,16 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.10"
+    val kotlinVersion = "1.5.10"
+    kotlin("jvm") version kotlinVersion
     `java-library`
     id("com.github.ben-manes.versions") version "0.38.0"
     id("io.gitlab.arturbosch.detekt") version "1.17.1"
+
+    // Spring
+    kotlin("plugin.spring") version kotlinVersion
+    id("org.springframework.boot") version "2.5.0"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
 repositories {
@@ -13,12 +19,14 @@ repositories {
 }
 
 dependencies {
-    api("io.projectreactor:reactor-core:3.4.6")
+    api("io.projectreactor:reactor-core")
+    api("io.projectreactor:reactor-test")
 
-    implementation("org.springframework:spring-context:5.3.7")
-    implementation("org.springframework:spring-tx:5.3.7")
-    implementation("io.projectreactor:reactor-test:3.4.6")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.3")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testRuntimeOnly("io.r2dbc:r2dbc-h2")
 
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
 }
