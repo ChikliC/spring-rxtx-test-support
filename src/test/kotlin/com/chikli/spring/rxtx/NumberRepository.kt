@@ -4,6 +4,7 @@ import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Mono
 
+@Suppress("SqlNoDataSourceInspection", "SqlResolve")
 @Repository
 class NumberRepository(private val client: DatabaseClient) {
 

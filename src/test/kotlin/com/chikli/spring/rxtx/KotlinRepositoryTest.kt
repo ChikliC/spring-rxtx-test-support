@@ -10,8 +10,8 @@ import org.springframework.r2dbc.core.DatabaseClient
 
 @SpringBootTest(classes = [NumberRepository::class, Transaction::class])
 @EnableAutoConfiguration
-//@Sql("/schema.sql")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Suppress("SqlNoDataSourceInspection", "SqlResolve")
 internal class KotlinRepositoryTest(@Autowired private val numberRepository: NumberRepository, @Autowired private val client: DatabaseClient) {
 
     @BeforeAll
