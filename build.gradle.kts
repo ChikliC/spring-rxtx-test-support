@@ -10,12 +10,18 @@ plugins {
 
     // Spring
     kotlin("plugin.spring") version kotlinVersion
-    id("org.springframework.boot") version "2.5.0"
+    id("org.springframework.boot") version "2.5.0" apply false
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
 repositories {
     mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
 }
 
 dependencies {
