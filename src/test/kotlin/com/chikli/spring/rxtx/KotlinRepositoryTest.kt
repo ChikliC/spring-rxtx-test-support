@@ -12,7 +12,10 @@ import org.springframework.r2dbc.core.DatabaseClient
 @EnableAutoConfiguration
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Suppress("SqlNoDataSourceInspection", "SqlResolve")
-internal class KotlinRepositoryTest(@Autowired private val numberRepository: NumberRepository, @Autowired private val client: DatabaseClient) {
+internal class KotlinRepositoryTest(
+    @Autowired private val numberRepository: NumberRepository,
+    @Autowired private val client: DatabaseClient
+) {
 
     @BeforeAll
     fun setup() {
@@ -25,7 +28,6 @@ internal class KotlinRepositoryTest(@Autowired private val numberRepository: Num
         """.trimIndent()
         ).fetch().rowsUpdated().subscribe()
     }
-
 
     @Test
     internal fun `first save & read works - second read doesn't see the first`() {

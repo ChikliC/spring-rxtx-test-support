@@ -18,5 +18,4 @@ class NumberRepository(private val client: DatabaseClient) {
         return client.sql("select the_number from number_table")
             .fetch().one().map { it["the_number"] as Int }
     }
-
 }
