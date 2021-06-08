@@ -1,6 +1,9 @@
 Spring Reactive Transaction Test Support Library
 ================================================
 
+![Maven Central](https://img.shields.io/maven-central/v/com.chikli.spring/spring-rxtx-test-support)
+[![License](https://img.shields.io/github/license/ChikliC/spring-rxtx-test-support)](https://github.com/ChikliC/spring-rxtx-test-support/blob/main/LICENSE.txt)
+
 Background
 ----------
 One of the great strengths of the Spring Framework is its great transaction support while running tests. That is, simply
