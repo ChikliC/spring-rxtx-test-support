@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest
 import org.springframework.r2dbc.core.DatabaseClient
+import org.springframework.test.context.ContextConfiguration
 
-@SpringBootTest(classes = [NumberRepository::class, RxTestTransaction::class])
+@DataR2dbcTest
+@ContextConfiguration(classes = [NumberRepository::class, RxTestTransaction::class])
 @EnableAutoConfiguration
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Suppress("SqlNoDataSourceInspection", "SqlResolve")

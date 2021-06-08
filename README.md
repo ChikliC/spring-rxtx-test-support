@@ -38,8 +38,9 @@ Using
 [See the tests](https://github.com/ChikliC/spring-rxtx-test-support/blob/main/src/test/kotlin/com/chikli/spring/rxtx/KotlinRepositoryTest.kt)
 for complete examples, but the gist of it is:
 
-Ensure that `RxTestTransaction` is brought into the Spring Context, and it seems like you need to
-use `@EnableAutoConfiguration`
+1. use `@DataR2dbcTest` or `@SpringBootTest` or something similar.
+2. ensure that `RxTestTransaction` is brought into the Spring Context.
+3. use `@EnableAutoConfiguration` (not sure why this is necessary)
 
 Then you can simply do:
 
