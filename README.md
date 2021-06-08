@@ -19,12 +19,12 @@ Installing
 ----------
 Gradle
 
-    testImplementation("com.chikli:spring-rxtx-test-support:<version>")
+    testImplementation("com.chikli.spring:spring-rxtx-test-support:<version>")
 
 Maven
 
     <dependency>
-        <groupId>com.chikli</groupId>
+        <groupId>com.chikli.spring</groupId>
         <artifactId>spring-rxtx-test-support</artifactId>
         <version>version</version>
         <scope>test</scope>
@@ -32,7 +32,13 @@ Maven
 
 Using
 -----
-See the tests for complete examples, but the gist of it is:
+[See the tests](https://github.com/ChikliC/spring-rxtx-test-support/blob/main/src/test/kotlin/com/chikli/spring/rxtx/KotlinRepositoryTest.kt)
+for complete examples, but the gist of it is:
+
+Ensure that `RxTestTransaction` is brought into the Spring Context, and it seems like you need to
+use `@EnableAutoConfiguration`
+
+Then you can simply do:
 
         numberRepository.save(100)                  <-- Save something to the DB
             .flatMap { numberRepository.read() }    <-- Read it back from the DB

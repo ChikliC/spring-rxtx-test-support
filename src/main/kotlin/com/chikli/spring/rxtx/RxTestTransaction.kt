@@ -8,10 +8,10 @@ import reactor.core.publisher.Mono
 import reactor.kotlin.test.test
 
 @Component
-class Transaction(transactionalOperator: TransactionalOperator) {
+class RxTestTransaction(transactionalOperator: TransactionalOperator) {
 
     init {
-        Transaction.transactionalOperator = transactionalOperator
+        RxTestTransaction.transactionalOperator = transactionalOperator
     }
 
     companion object {
@@ -28,4 +28,4 @@ class Transaction(transactionalOperator: TransactionalOperator) {
     }
 }
 
-fun <T> Mono<T>.testWithTx() = Transaction.createWithRollback(this)
+fun <T> Mono<T>.testWithTx() = RxTestTransaction.createWithRollback(this)

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.r2dbc.core.DatabaseClient
 
-@SpringBootTest(classes = [NumberRepository::class, Transaction::class])
+@SpringBootTest(classes = [NumberRepository::class, RxTestTransaction::class])
 @EnableAutoConfiguration
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Suppress("SqlNoDataSourceInspection", "SqlResolve")
