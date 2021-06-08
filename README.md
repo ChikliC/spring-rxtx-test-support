@@ -40,6 +40,12 @@ See the tests for complete examples, but the gist of it is:
             .expectNext(100)                        <-- Evaluate the first result
             .verifyComplete()                       <-- Ensure no more data is coming
 
+Releasing a new version
+-----------------------
+Update the `version` variable in `gradle.properties` and then run the following:
+
+    gw publishToSonatype closeAndReleaseSonatypeStagingRepository
+
 Feedback
 --------
-I'd love to know if you're using this (star the Repo if you do!), and please feel free to submit issues & PR's.
+I'd love to know if you're using this (star the Repo if you do!), and please feel free to submit issues & PRs.
