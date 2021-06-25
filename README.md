@@ -54,7 +54,7 @@ Releasing a new version
 -----------------------
 Update the `version` variable in `gradle.properties` and then run the following:
 
-    gw publishToSonatype closeAndReleaseSonatypeStagingRepository
+    ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
 
 Feedback
 --------
